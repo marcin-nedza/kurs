@@ -266,7 +266,6 @@ public class homework2 {
         // jezeli aabc jest ok, to czemu anka jest nie ok
         // --------------------
         tblString.forEach(el -> {
-            // System.out.printf("%s --------\n", el);
             Map<String, Integer> map = new HashMap<>();
             el.chars().forEach(e -> {
                 String character = String.valueOf((char) e);
@@ -317,9 +316,7 @@ public class homework2 {
         int[][] arr2;
         arr2 = new int[6][6];
         initialize2DArray(arr2, 0, true);
-        System.out.println("----");
         printTwoDArray(arr2);
-        System.out.println("----");
         // policzyc sume wszystkich elementow w macierzy
         int arrSum = 0;
         for (int i = 0; i < arr2.length; i++) {

@@ -192,9 +192,8 @@ Zapis i odczyt
     	// slownikPoprawiony
 
 
-    	// W pliku tekstowym sa wyrazy. Wypisz te ktore sa palindromami np kajak, ala
+    	// W pliku tekstowym sa wyraz. Wypisz te ktore sa palindromami np kajak, ala
 
-Zapiszmy do pliku n losowych liczb (z zakresu 1-8). Kazda liczba ma byc losowa z zakresu 5-15
 
 - W pliku tekstowym mamy dwa wiersze. W pierwszym mamy jeden wyraz. W drugim mamy wiersz ktory zawiera dowolna liczbe wyrazów.
   Wyswietl wszystkie te wyrazy które sa anagramami wyrazu z pierwszego wiersza

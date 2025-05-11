@@ -151,9 +151,6 @@ Scanner
      	//niepoprawne, wyswietlamy napis ze haslo jst niepoparwne, wprowadz poprawne hasło.
      	//Jesli uzytkownik wprowadzi poprawne haslo to wyswietlamy komunikat ze haslo jest poprawne.
 
-Wczytaj skanerem 10 losowych liczb i umiesc je w tablicy
-Wczytaj skanerem od 3 do 7 stringow i policz sume ich dlugosci
-
 //Wprowadz za pomoca okienka dialogowego jakis napis. Jesli jego dlugosc jest wieksza niz 15, wyswietl
 //za pomoca okienka napis ze jest za dlugi tekst, a jesli nie to wyswietl ze jest ok.
 

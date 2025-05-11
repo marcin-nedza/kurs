@@ -106,6 +106,10 @@ public class Main {
                     break;
 
                 case "/":
+                    if (d2 == 0) {
+                        System.out.println("Nie mozna dzielic przez 0");
+                        break;
+                    }
                     System.out.printf("\nIloraz %.1f i %.1f wynosi = %.1f", d1, d2, d1 / d2);
                     break;
                 case "*":

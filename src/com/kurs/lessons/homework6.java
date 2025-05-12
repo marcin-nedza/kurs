@@ -68,7 +68,7 @@ public class homework6 {
         // Napisz metode ktora jako parametr przyjmuje 2 Listy Stringow i zwraca liste
         // elementów wspolnych, ktore sa na obu listach
 
-        List<String> list3 = new ArrayList<>(List.of("Ania", "HASdasda", "kdsjdkjfks"));
+        List<String> list3 = new ArrayList<>(List.of("Ania", "HASdasda", "kdsjdkjfks", "abc"));
         System.out.println(commonElements(list2, list3));
         // Napisz metode ktora dla listy intów zwroci roznice pomiedzy jej najwiekszym a
         // najmniejszym elementem
@@ -94,34 +94,41 @@ public class homework6 {
         // powinien wypisac 3, bo byly 3 potworki
         nameOccurances(list2);
         // Wyswietl ile razy we wszystkich imionach była użyta samogłoska
-
+        System.out.println(vowel(list2));
         // Napisz metodę która wyswietli unikalne imiona
-
+        getUniqueNames(list2);
         // Zwroc liste imion które sa dluzsze niz 5 znakow o parzystej dlugosci
-
+        getNamesLongerThanFiveEven(list2);
         // Zwroc liczbe słow ktore sa zlozone z samych whitespaców np spacji
-
+        countWhitespaceWords(list2);
         // Napisz metode ktora przyjmuje jako parametr liste Stringow oraz liste intow
         // (tej samej dlugosci obie listy)
-
         // Metoda ma zwrocic liste Stringow z pirwszej listy ktorych dlugosc odpowiada
         // liczbom na 2 liscie
         // Ania Krzys Tomek Kasia Jan
         // 4 2 5 8 3
         // Ania Tomek Jan
+        System.out.println(getStringsMatchingLengths(list3, List.of(4, 2, 10, 2)));
 
         // napisz metode ktora przyjmuje liste stringow i stringa, jej zadaniem jest
         // usunicie z listy wszystkich stringow takich jak podany parametr
         // UWAGA: nie wolno uzywac z metody removeall, nalezy przeiterowac po liscie i
         // po kolei usuwac elementy
+        removeFromList(list3, "abc");
+        System.out.println(list3);
 
         // napisz metode ktora przyjmuje liste intow i zwraca z niej wszystkie liczby
         // pierwsze
         // Napisz metode ktora przyjmuje jako parametr liste tablic Stringow i oblicza
         // sume dlugosci wszystkich Stringów
+        List<Integer> primList = new ArrayList<>(List.of(1, 2, 3, 4, 5, 7));
+        System.out.println(getPrimes(primList));
 
         // Napisz metodę która przyjmuje jako parametr listę stringów. Jej zadaniem jest
         // zapisanie do pliku każdego stringa który zaczyna się od samogłoski
+
+        List<String> list4 = new ArrayList<>(List.of("Ania", "HASdasda", "kdsjdkjfks", "abc"));
+        vowelFileSave(list4);
     }
 
     public static int sum(List<Integer> l) {
@@ -198,6 +205,84 @@ public class homework6 {
 
     public static void nameOccurances(List<String> l) {
         Map<String, Long> nCount = l.stream().collect(Collectors.groupingBy(n -> n, Collectors.counting()));
-        nCount.forEach((name, count) -> System.out.printf("\n %s appeared %d times", name, count));
+        nCount.forEach((name, count) -> System.out.printf("\n%s appeared %d times", name, count));
+        System.out.println();
+    }
+
+    public static int vowel(List<String> l) {
+        List<String> vow = new ArrayList<>(List.of("a", "ą", "e", "ę", "i", "o", "u", "y"));
+        return l.stream().mapToInt(n -> (int) n.chars().filter(c -> vow.contains(String.valueOf((char) c))).count())
+                .sum();
+    }
+
+    public static List<String> getUniqueNames(List<String> names) {
+        return names.stream()
+                .distinct()
+                .collect(Collectors.toList());
+    }
+
+    public static List<String> getNamesLongerThanFiveEven(List<String> names) {
+        return names.stream()
+                .filter(name -> name.length() > 5 && name.length() % 2 == 0)
+                .collect(Collectors.toList());
+    }
+
+    public static long countWhitespaceWords(List<String> words) {
+        return words.stream()
+                .filter(word -> word.trim().isEmpty())
+                .count();
+    }
+
+    public static List<String> getStringsMatchingLengths(List<String> strings, List<Integer> lengths) {
+        if (strings.size() != lengths.size()) {
+            System.out.println("Both lists must have the same length");
+            // throw some error
+        }
+
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < strings.size(); i++) {
+            if (strings.get(i).length() == lengths.get(i)) {
+                result.add(strings.get(i));
+            }
+        }
+        return result;
+    }
+
+    public static void removeFromList(List<String> l, String target) {
+        for (int i = 0; i < l.size(); i++) {
+            if (l.get(i).equals(target)) {
+                l.remove(i);
+                i--;
+            }
+        }
+    }
+
+    public static List<Integer> getPrimes(List<Integer> list) {
+        return list.stream()
+                .filter(n -> n > 1 && isPrime(n))
+                .collect(Collectors.toList());
+    }
+
+    public static boolean isPrime(int n) {
+        if (n <= 1)
+            return false;
+        for (int i = 2; i < n; i++) {
+            if (n % 2 == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void vowelFileSave(List<String> l) {
+        List<String> vow = List.of("a", "ą", "e", "ę", "i", "o", "u", "y");
+        for (String w : l) {
+
+            String firstChar = String.valueOf(w.charAt(0)).toLowerCase();
+            System.out.println("))))))))00000   " + firstChar);
+            if (vow.contains(String.valueOf(w.charAt(0)).toLowerCase())) {
+                homework4.writeToFile("vowels.txt", w, true);
+            }
+        }
     }
 }

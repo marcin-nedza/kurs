@@ -473,12 +473,3 @@ Mapy
 // 1) Napisz metode ktora zwraca liste osob o najdluzszych nazwiskach z kazdej klasy
 // 2) Napisz metode która zwraca osobe o najdluzszym nazwisku ze wzystkich klas
 
-Daniel
-Pamiętaj że kiedy używasz scannera to użyć scanner.close()
-
-A kiedy korzystasz z plików odczyt/zapis to używać try with resources np
-
-try(BufferedWdriter bf = new BufferedWriter(new FileWriter("file.txt"))) {
-
-} catch(Exception e) {
-System.out.println("DUPA");

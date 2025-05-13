@@ -75,10 +75,8 @@ public class homework7 {
     // klucze sa parzystych wartosci
     // na słowo "parzyste"
     public static void changeMap(Map<Integer, String> map) {
-        System.out.println("ENTRY SET " + map.entrySet());
         for (Map.Entry<Integer, String> entry : map.entrySet()) {
             if (entry.getKey() % 2 == 0) {
-                System.out.println("HEHEHE " + entry.getKey());
                 entry.setValue("Parzyste");
             }
         }
@@ -110,10 +108,9 @@ public class homework7 {
     // (same nazwiska jako Stringi) które uczeszczaja do klasy.
     // 1) Napisz metode ktora zwraca liste osob o najdluzszych nazwiskach z kazdej
     // klasy
-    // 2) Napisz metode która zwraca osobe o najdluzszym nazwisku ze wzystkich klas
 
-    public static Map<String,String> getLongestInClass(Map<String, List<String>> m) {
-        Map<String,String> res = new HashMap<>();
+    public static Map<String, String> getLongestInClass(Map<String, List<String>> m) {
+        Map<String, String> res = new HashMap<>();
 
         for (Map.Entry<String, List<String>> entry : m.entrySet()) {
             String clname = entry.getKey();
@@ -130,23 +127,16 @@ public class homework7 {
         return res;
     }
 
+    // 2) Napisz metode która zwraca osobe o najdluzszym nazwisku ze wzystkich klas
     public static void getTheLongest(Map<String, List<String>> m) {
-        System.out.println("0000000");
-        System.out.println(m.values());
+        String longest = "";
         for (List<String> studs : m.values()) {
-           String longest="" ;
+            for (String s : studs) {
+                if (s.length() > longest.length()) {
+                    longest = s;
+                }
+            }
         }
-
-        // for (Map.Entry<String, List<String>> entry : m.entrySet()) {
-        //     String clname = entry.getKey();
-        //     List<String> studs = entry.getValue();
-        //     for (String a : studs) {
-        //         if (a.length() > longest.length()) {
-        //             longest = a;
-        //         }
-        //     }
-
-        //     res.put(clname, longest);
-        // }
+        System.out.println(longest);
     }
 }

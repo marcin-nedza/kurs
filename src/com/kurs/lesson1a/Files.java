@@ -1,4 +1,4 @@
-package src.com.kurs.lesson2;
+package src.com.kurs.lesson1a;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

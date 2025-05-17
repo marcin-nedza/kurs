@@ -127,6 +127,7 @@ public class homework7 {
         return res;
     }
 
+    
     // 2) Napisz metode która zwraca osobe o najdluzszym nazwisku ze wzystkich klas
     public static void getTheLongest(Map<String, List<String>> m) {
         String longest = "";

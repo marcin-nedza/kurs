@@ -224,7 +224,9 @@ public class homework2 {
         System.out.println(st);
 
         // wypiszmy te liczby które sa parzyste z tej tablicy
-        String st2 = Arrays.stream(tbl).filter(el -> el % 2 == 0).mapToObj(String::valueOf)
+        String st2 = Arrays.stream(tbl)
+                .filter(el -> el % 2 == 0)
+                .mapToObj(String::valueOf)
                 .collect(Collectors.joining(" "));
         System.out.println(st2);
         // Oblicz sume elementow tablicy doubli ale tylko tych ktore sa wieksze niz 3.8

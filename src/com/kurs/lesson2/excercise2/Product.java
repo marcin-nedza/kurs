@@ -1,9 +1,8 @@
-package src.com.kurs.lesson2.excercise1;
+package src.com.kurs.lesson2.excercise2;
 
-public abstract class Product {
+public class Product {
     private String name;
     private double price;
-    private Customer owner;
 
     public Product(String name, double price) {
         this.name = name;
@@ -26,20 +25,9 @@ public abstract class Product {
         this.price = price;
     }
 
-    public Customer getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Customer owner) {
-        this.owner = owner;
-    }
-
-    public void addCustomer(Customer c){
-        this.setOwner(c);
-    }
-
     @Override
     public String toString() {
-        return "Product [name=" + name + ", price=" + price + ", owner=" + owner + "]";
+        return "Product [name=" + name + ", price=" + price + "]";
     }
+
 }

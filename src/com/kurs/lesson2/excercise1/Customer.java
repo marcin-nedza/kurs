@@ -47,14 +47,18 @@ public class Customer {
         this.prodList = prodList;
     }
 
+    public void buy(Product prod) {
+        prodList.add(prod);
+        prod.setOwner(this);
+    }
+
     @Override
     public String toString() {
         return "Customer [name=" + name + ", lastName=" + lastName + ", cockSize=" + cockSize + "]";
     }
 
-    public void getCustomerSpending(){
-        double res=prodList.stream().mapToDouble(Product::getPrice).sum();
-        System.out.println(res);
+    public double getCustomerSpending() {
+        return prodList.stream().mapToDouble(Product::getPrice).sum();
     }
 
 }

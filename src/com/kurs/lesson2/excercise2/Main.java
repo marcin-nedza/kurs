@@ -30,12 +30,13 @@ public class Main {
         Employee em2 = new Employee("Marek", "Swiniak", "Wawa", 2200);
         Employee em3 = new Employee("JArek", "JHDFdfs", "Wawa", 200);
         Employee em4 = new Employee("CZarek", "hhhhhh", "Wawa", 3200);
-        List<Employee> employeList = List.of(em1,em2,em3,em4);
+        List<Employee> employeList = List.of(em1, em2, em3, em4);
 
         Car car1 = new Car("Audi", "A8");
         Car car2 = new Car("Fiat", "Maluch");
-        List<Car> carList=List.of(car1,car2);
+        List<Car> carList = List.of(car1, car2);
         em1.rideCar(car1);
+        em2.rideCar(car1);
         em2.rideCar(car1);
         em1.rideCar(car2);
         Product pr1 = new Product("Jaja", 2.33);
@@ -50,7 +51,7 @@ public class Main {
         cl2.buy(pr2);
 
         System.out.println(findClient(clientList));
-        cl1.getProdList().entrySet().forEach(s->System.out.println(s));
+        cl1.getProdList().entrySet().forEach(s -> System.out.println(s));
         getFavourite(clientList);
         getHighestPaid(employeList);
         getCarUsage(carList);
@@ -63,24 +64,26 @@ public class Main {
                 .orElse(null);
     }
 
-    public static void getFavourite(List<Client> clients){
-        System.out.println("--a-sda");
+    public static void getFavourite(List<Client> clients) {
         for (Client client : clients) {
-            Map.Entry<Product,Integer> favourite=client.getProdList().entrySet().stream().max(Map.Entry.comparingByValue()).orElse(null);
+            Map.Entry<Product, Integer> favourite = client.getProdList().entrySet().stream()
+                    .max(Map.Entry.comparingByValue()).orElse(null);
             System.out.println(favourite);
         }
     }
 
-    // public static List<Employee> getHighestPaid(List<Employee> empl){
-    public static void getHighestPaid(List<Employee> empl){
-        List<Employee> list=empl.stream().sorted(Comparator.comparingInt(Employee::getSalary).reversed()).limit(3).toList();
+    public static void getHighestPaid(List<Employee> empl) {
+        List<Employee> list = empl.stream().sorted(Comparator.comparingInt(Employee::getSalary).reversed()).limit(3)
+                .toList();
         System.out.println(list);
     }
 
-    public static void getCarUsage(List<Car> cars){
-        cars.forEach(c->{
-            System.out.println("----");
-            System.out.println(c.getEmpList());
+    public static void getCarUsage(List<Car> cars) {
+        cars.forEach(c -> {
+            c.getEmpList().forEach((k, v) -> {
+                System.out.println("Car " + c.getBrand() + " " + c.getModel() + ": used: " + v
+                        + " times by" + k);
+            });
         });
     }
 }

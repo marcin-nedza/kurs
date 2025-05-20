@@ -5,10 +5,9 @@ public abstract class Animal {
     private String species;
     private Trainer trainer;
 
-    public Animal(String name, String species,Trainer trainer) {
+    public Animal(String name, String species) {
         this.name = name;
         this.species = species;
-        this.trainer=trainer;
     }
 
     public String getName() {

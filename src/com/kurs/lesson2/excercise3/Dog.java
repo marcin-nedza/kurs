@@ -7,10 +7,9 @@ public class Dog extends Animal {
     private int furlength;
     private List<String> favouriteToys = new ArrayList<>();
 
-    public Dog(String name, String species,Trainer trainer, int furlength, List<String> favouriteToys) {
-        super(name, species,trainer);
+    public Dog(String name, String species, int furlength) {
+        super(name, species);
         this.furlength = furlength;
-        this.favouriteToys = favouriteToys;
     }
 
     public int getFurlength() {
@@ -27,6 +26,10 @@ public class Dog extends Animal {
 
     public void setFavouriteToys(List<String> favouriteToys) {
         this.favouriteToys = favouriteToys;
+    }
+
+    public void addToy(String toy) {
+        this.favouriteToys.add(toy);
     }
 
 }

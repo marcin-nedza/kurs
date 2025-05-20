@@ -23,6 +23,11 @@ public class Main {
      * -znajdz wszystkie pterodaktyle ktore nigdy nie mialy przypisanego trenera
      */
     public static void main(String[] args) {
-        Cat cat = new Cat("asd", "cat", new Trainer("Jasiek", "asdasd", "dhv8dsf"), 2);
+        Trainer trainer1 = new Trainer("Jacek", "Dziadu", "wawa");
+        Trainer trainer2 = new Trainer("Tomek", "Chujek", "Kielce");
+        Cat cat1 = new Cat("ASd", "Dachowiec", 2);
+        Cat cat2 = new Cat("ASd", "Dachowiec", 20);
+        Dog dog1 = new Dog("Burek", "Husky", 20);
+        Pterodactyl ptero=new Pterodactyl("Dino", "Chuj wie", 10);
     }
 }

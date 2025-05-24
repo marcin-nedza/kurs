@@ -8,6 +8,7 @@ public class Equipment {
     // * sprzet moze byc naprawiany.
     private String name;
     private Condition eqCondition;
+    private int repairCount = 0;
     private Map<Trainer, Integer> usedByTrainer = new HashMap<>();
 
     public Equipment(String name, Condition eqCondition) {
@@ -31,6 +32,14 @@ public class Equipment {
         this.eqCondition = eqCondition;
     }
 
+    public int getRepairCount() {
+        return repairCount;
+    }
+
+    public void setRepairCount(int repairCount) {
+        this.repairCount = repairCount;
+    }
+
     public Map<Trainer, Integer> getUsedByTrainer() {
         return usedByTrainer;
     }
@@ -39,14 +48,6 @@ public class Equipment {
         this.usedByTrainer = usedByTrainer;
     }
 
-    // public void use(Employee empl) {
-    // if (empList.containsKey(empl)) {
-    // int val = empList.get(empl);
-    // empList.put(empl, val + 1);
-    // } else {
-    // empList.put(empl, 1);
-    // }
-    // }
     public void getUsed(Trainer trainer) {
         if (usedByTrainer.containsKey(trainer)) {
             int val = usedByTrainer.get(trainer);
@@ -58,10 +59,12 @@ public class Equipment {
 
     public void repair() {
         setEqCondition(Condition.NEW);
+        setRepairCount(repairCount+1);
     }
 
     @Override
     public String toString() {
-        return "Equipment [name=" + name + ", eqCondition=" + eqCondition + "]";
+        return "Equipment [name=" + name + ", eqCondition=" + eqCondition + ", repairCount=" + repairCount + "]";
     }
+
 }

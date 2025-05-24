@@ -17,13 +17,13 @@ public class Cat extends Animal {
         if (annoyanceLevel < 1 || annoyanceLevel > 10) {
             throw new IllegalArgumentException("Annoyance level must be in 1-10 range");
         } else {
-
             this.annoyanceLevel = annoyanceLevel;
         }
     }
 
     @Override
     public String toString() {
-        return "Cat [annoyanceLevel=" + annoyanceLevel + "]";
+        // return super.toString() + ", Cat [annoyanceLevel=" + annoyanceLevel + "]";
+        return super.toString();
     }
 }

@@ -2,12 +2,12 @@ package src.com.kurs.lesson2.excercise3;
 
 public abstract class Animal {
     private String name;
-    private String species;
+    private String race;
     private Trainer trainer;
 
-    public Animal(String name, String species) {
+    public Animal(String name, String race) {
         this.name = name;
-        this.species = species;
+        this.race = race;
     }
 
     public String getName() {
@@ -18,12 +18,12 @@ public abstract class Animal {
         this.name = name;
     }
 
-    public String getSpecies() {
-        return species;
+    public String getRace() {
+        return race;
     }
 
-    public void setSpecies(String species) {
-        this.species = species;
+    public void setRace(String race) {
+        this.race = race;
     }
 
     public Trainer getTrainer() {
@@ -36,7 +36,7 @@ public abstract class Animal {
 
     @Override
     public String toString() {
-        return "Animal [name=" + name + ", species=" + species + ", trainer=" + trainer + "]";
+        return "Animal [name=" + name + ", race=" + race + ", trainer=" + trainer + "]";
     }
 
 }

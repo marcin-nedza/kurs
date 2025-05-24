@@ -47,9 +47,49 @@ public class Trainer {
         this.animals = animals;
     }
 
+    public void trainAnimal(Animal animal){
+        this.animals.add(animal);
+        animal.setTrainer(this);
+    }
+
+    public void useEq(Equipment eq){
+        eq.getUsed(this);
+    }
+
     @Override
     public String toString() {
-        return "Trainer [name=" + name + ", lastName=" + lastName + ", adress=" + adress + ", animals=" + animals + "]";
+        return "Trainer [name=" + name + ", lastName=" + lastName + ", adress=" + adress + ", animals count=" + animals.size() + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Trainer other = (Trainer) obj;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        if (lastName == null) {
+            if (other.lastName != null)
+                return false;
+        } else if (!lastName.equals(other.lastName))
+            return false;
+        return true;
     }
 
 }
